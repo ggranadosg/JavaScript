@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 04 ejercicio 28</title>
+</head>
+<body>
+
+<script>
+
+
+alert("Por favor, ingrese números válidos.");
+    while (true) {
+        let num1 = parseFloat(prompt("Ingrese el primer número:"));
+        let num2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+        // Validar que los valores ingresados sean números
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Por favor, ingrese números válidos.");
+            continue; // Reinicia el bucle
+        }
+
+        // Solicitar al usuario que ingrese un operador
+        let operador = prompt("Ingrese un operador (+, -, *, /):");
+
+        // Realizar operaciones según el operador ingresado
+        let resultado;
+        switch (operador) {
+            case '+':
+                resultado = num1 + num2;
+                break;
+            case '-':
+                resultado = num1 - num2;
+                break;
+            case '*':
+                resultado = num1 * num2;
+                break;
+            case '/':
+                // Validar que no se divida por cero
+                if (num2 !== 0) {
+                    resultado = num1 / num2;
+                } else {
+                    alert("No se puede dividir por cero. Intente nuevamente.");
+                    continue; // Reinicia el bucle
+                }
+                break;
+            default:
+                alert("Operador no válido. Intente nuevamente.");
+                continue; // Reinicia el bucle
+        }
+
+        // Mostrar el resultado
+        alert(`El resultado de ${num1} ${operador} ${num2} es: ${resultado}`);
+
+        // Preguntar al usuario si desea repetir el proceso
+        let deseaContinuar = confirm("¿Desea realizar otra operación?");
+        if (!deseaContinuar) {
+            break; // Sale del bucle si el usuario no desea continuar
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>
